@@ -4,9 +4,12 @@
  */
 
 /**
- * Modified by:
+ * Modified by: Alex Roe-Gulke
  * 
  * Brief summary of modifications:
+ * the signal being handled is now SIGKILL, so the 
+ * program terminates before attempting to handle the signal.
+ * compile: gcc -o signal_handler signal_handler.c
  */
 
 
@@ -26,7 +29,7 @@ void handle_signal() {
 int main() {
 
     // Register for the signal
-    signal(SIGINT, handle_signal);
+    signal(SIGKILL, handle_signal);
 
     // Wait until a signal is received
     while(1) {
